@@ -2,6 +2,7 @@ package com.engineer4life.assessment;
 
 import java.util.Arrays;
 
+// https://leetcode.com/problems/maximum-units-on-a-truck/submissions
 public class MaxUnitOnTruck {
     public int maximumUnits(int[][] boxTypes, int truckSize) {
         int maxUnits = 0;
@@ -11,14 +12,9 @@ public class MaxUnitOnTruck {
             int numBox = boxType[0];
             int numUnit = boxType[1];
             
-            
-            
-            while(truckSize > 0 && numBox > 0){
-                //System.out.printf("%d box taken that contains %d\n", numBox, numUnit);
-                maxUnits += numUnit;
-                numBox--;
-                truckSize--;
-            }
+            int maxBoxCanTake = (truckSize == numBox? numBox : (truckSize > numBox ? numBox%truckSize : truckSize%numBox));
+            maxUnits += maxBoxCanTake*numUnit;
+            truckSize -= maxBoxCanTake;
         }
         return maxUnits;
     }
