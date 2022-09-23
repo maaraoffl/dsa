@@ -73,5 +73,8 @@ public class WordSearch2 {
         var test3_words = new String[]{"aaa"};        
         var test3_results = ws.findWords(test3_board, test3_words);
         System.out.println(test3_results);
+
+        // TODO: Memoization for large inputs
+        
     }
 }
